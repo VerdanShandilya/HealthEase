@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="/css/home.css" />
+    <style>
+      body {
+        background-image: url("/assets/back_gpt.jpg");
+        background-size: contain;
+      }
+      #details {
+        margin-top: 20px;
+        width: 950px;
+        padding: 20px;
+        background-color: #cdf5fd;
+        border-radius: 10px;
+      }
+      #result {
+        width: 1000px;
+        margin-top: 20px;
+        background-color: #cdf5fd;
+        border-radius: 20px;
+        padding: 20px;
+      }
+      #but {
+        background-color: #0766ad;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <!-- navbar -->
+
+      <%- include('partials/navbar',{login:isAuthenticated}) %>
+    </header>
+
+    <!-- details -->
+
+    <div
+      style="
+        margin-bottom: 20px;
+        margin-left: 275px;
+        border: 1px solid white;
+        border-radius: 10px;
+        width: 950px;
+        box-shadow: 0px 0px 10px 10px white;
+      "
+    >
+      <div id="heading">
+        <center>
+          <h1>Enter the details for tests</h1>
+        </center>
+      </div>
+      <div id="outer">
+        <!-- <form class="row g-3" id="form1" onsubmit="main()"> -->
+        <div class="row mb-3">
+          <label for="inputage" class="col-sm-3 col-form-label">Previous Ailments (If any) :</label>
+          <div class="col-sm-9">
+            <input type="text" class="form-control" id="inputage" placeholder="Ex: Diabetes, Blood Pressure, etc." />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label for="inputage" class="col-sm-2 col-form-label">Symptoms :</label>
+          <!-- <div class="col-sm-10 chatbox"> -->
+
+          <input
+            type="text"
+            class="form-control"
+            id="input_symp"
+            placeholder="Ex: Fever, Vomitting, etc."
+            style="height: 100px"
+          />
+        </div>
+
+        <center>
+          <button type="button" class="btn cta-btn" style="margin-top: 0px; margin-bottom: 10px">
+            Solve my HealthQuery
+          </button>
+        </center>
+
+        <label for="inputtests" class="col-sm col-form-label">AI Response :</label>
+        <div class="col-lg">
+          <!-- <input type="text" class="form-control chatbox" id="messages" style="height: 150px;"> -->
+          <div style="height: 150px; background-color: white" id="messages"></div>
+        </div>
+        <br />
+
+        <!-- <center>
+          <label for="inputcall" class="col-form-label">Still Unsure ?</label>
+          <button class="btn cta-btn" style="margin-bottom: 15px">Call Us</button>
+        </center> -->
+        <!-- </form> -->
+      </div>
+    </div>
+
+    <!-- result section -->
+
+    <%- include('partials/footer') %>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const messagesContainer = document.getElementById("messages");
+        const userInput = document.getElementById("input_symp");
+        const addMessage = (text, sender) => {
+          const messageElem = document.createElement("div");
+          // Clear previous responses
+          messagesContainer.innerHTML = "";
+
+          messageElem.classList.add("message");
+          messageElem.classList.add(sender);
+          messageElem.textContent = text;
+          messagesContainer.appendChild(messageElem);
+          messagesContainer.scrollTop = messagesContainer.scrollHeight;
+        };
+        const fetchMessageFromChatGpt = async (message) => {
+          try {
+            const response = await fetch("/api/chat", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({ message }),
+            });
+            const data = await response.json();
+            addMessage(data.reply, "server");
+          } catch (error) {
+            console.error("Error:", error.message);
+            addMessage("Something went wrong", "server");
+          }
+        };
+        userInput.addEventListener("keypress", (event) => {
+          if (event.key === "Enter") {
+            const message = userInput.value.trim();
+            if (message !== "") {
+              addMessage(message, "user");
+              userInput.value = "";
+              fetchMessageFromChatGpt(message);
+            }
+          }
+        });
+        const button = document.querySelector(".cta-btn");
+        button.addEventListener("click", () => {
+          const message = document.getElementById("input_symp").value.trim();
+          if (message !== "") {
+            addMessage(message, "user");
+            document.getElementById("input_symp").value = "";
+            fetchMessageFromChatGpt(message);
+          }
+        });
+      });
+    </script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+      integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+      crossorigin="anonymous"
+    ></script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+      integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+      crossorigin="anonymous"
+    ></script>
+    <!-- <script type="text/javascript" src="gpt.js"></script> -->
+  </body>
+</html>
