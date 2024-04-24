@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>HealthEase</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <!-- aos css -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+    <!-- Bootstrap CSS v5.2.1 -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="/css/home.css" />
+  </head>
+
+  <body>
+    <main>
+      <section class="hero-section-container">
+        <!-- navbar -->
+
+        <%- include('partials/navbar',{login:isAuthenticated}) %>
+
+        <!-- hero section -->
+        <div class="hero-section" data-aos="fade-up">
+          <div class="text-section">
+            <p class="text-headline">❤️ Health comes first</p>
+            <h2 class="text-title">Find your Doctor and make an Appointments</h2>
+            <p class="text-descritpion">
+              Talk to online doctors and get medical advice, online prescriptions, refills and medical notes within
+              minutes. On-demand healthcare services at your fingertips.
+            </p>
+            <a href="/appointment">
+              <button class="text-appointment-btn" type="button">
+                <svg
+                  aria-hidden="true"
+                  focusable="false"
+                  data-prefix="fas"
+                  data-icon="calendar-check"
+                  class="svg-inline--fa fa-calendar-check"
+                  role="img"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 448 512"
+                >
+                  <path
+                    fill="currentColor"
+                    d="M128 0c17.7 0 32 14.3 32 32V64H288V32c0-17.7 14.3-32 32-32s32 14.3 32 32V64h48c26.5 0 48 21.5 48 48v48H0V112C0 85.5 21.5 64 48 64H96V32c0-17.7 14.3-32 32-32zM0 192H448V464c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V192zM329 305c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0l-95 95-47-47c-9.4-9.4-24.6-9.4-33.9 0s-9.4 24.6 0 33.9l64 64c9.4 9.4 24.6 9.4 33.9 0L329 305z"
+                  ></path>
+                </svg>
+                Book Appointment
+              </button>
+            </a>
+            <div class="text-stats">
+              <div class="text-stats-container">
+                <p>145k+</p>
+                <p>Receive Patients</p>
+              </div>
+              <div class="text-stats-container">
+                <p>50+</p>
+                <p>Expert Doctors</p>
+              </div>
+              <div class="text-stats-container">
+                <p>10+</p>
+                <p>Years of Experience</p>
+              </div>
+            </div>
+          </div>
+          <div class="hero-image-section">
+            <img class="hero-image1" src="/assets/doctor-picture.png" alt="Doctor" />
+          </div>
+        </div>
+      </section>
+      <!-- features section -->
+      <section class="white-section" id="features" data-aos="fade-up">
+        <div class="container-fluid features-card mx-auto col-12">
+          <!-- floating img -->
+
+          <!-- feature-card -->
+
+          <div class="features-header">
+            <h2 class="section-heading">Why People Believe in Us</h2>
+            <p>
+              <small class="text-muted"
+                >Always render more and better service than <br />is expected of you, no matter what your ask may
+                be.</small
+              >
+            </p>
+          </div>
+          <div class="row" style="justify-content: center">
+            <div class="card col-md-3 col-12 ml-2" data-aos="zoom-in-up">
+              <div class="card-content">
+                <div class="card-body">
+                  <img class="img feature-img" src="/assets/analytic.png" />
+                  <div class="shadow"></div>
+                  <div class="card-title">Diagnostic Test Recommendations</div>
+                  <div class="card-subtitle">
+                    <p>
+                      <small class="text-muted"
+                        >Unsure which tests you need? We'll recommend based on your symptoms, medical history, and
+                        lifestyle, partnering with trusted labs for accurate results.</small
+                      >
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card col-md-3 col-12 ml-2" data-aos="zoom-in-up" data-aos-delay="100">
+              <div class="card-content">
+                <div class="card-body">
+                  <img class="img feature-img" src="/assets/chatbot.png" />
+                  <div class="card-title">AI Chatbot Assistance</div>
+                  <div class="card-subtitle">
+                    <p>
+                      <small class="text-muted">
+                        Get instant answers to your health queries 24/7. Whether it's a specific condition or chronic
+                        illness, our AI chatbot is here to help.
+                      </small>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card col-md-3 col-12 ml-2" data-aos="zoom-in-up" data-aos-delay="200">
+              <div class="card-content">
+                <div class="card-body">
+                  <img class="img feature-img" src="/assets/fitness.png" />
+                  <div class="card-title">Home Test Services</div>
+                  <div class="card-subtitle">
+                    <p>
+                      <small class="text-muted"
+                        >Book tests online and our certified professionals will come to your doorstep for sample
+                        collection. Get accurate results without leaving home.</small
+                      >
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card col-md-3 col-12 ml-2" data-aos="zoom-in-up" data-aos-delay="300">
+              <div class="card-content">
+                <div class="card-body">
+                  <img class="img feature-img" src="/assets/doctor-consultation.png" />
+                  <div class="card-title">Doctor Consultations</div>
+                  <div class="card-subtitle">
+                    <p>
+                      <small class="text-muted"
+                        >Schedule virtual consultations with experienced doctors across various specialties. Receive
+                        personalized medical advice from the comfort of your home.</small
+                      >
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- cta -->
+      <section class="colored-section" id="cta" data-aos="fade-right">
+        <div class="container-fluid cta">
+          <div>
+            <img class="cta-img" src="/assets/doctor-book-appointment.png" />
+          </div>
+          <div class="cta-content">
+            <h2 class="section2-heading">Get a Free Consultation Online</h2>
+            <p>
+              Have a health concern? Chat with our AI bot or schedule a virtual consultation with a doctor. We're here
+              to help you feel your best.
+            </p>
+            <a href="/appointment">
+              <button type="button" class="btn cta-btn">Book Appointment</button>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- poplular tests section -->
+
+      <section class="white-section" id="popular-tests" data-aos="fade-up">
+        <div class="container-fluid">
+          <div class="popular-tests-header">
+            <h2 class="section-heading">Popular Tests</h2>
+            <p>
+              <small class="text-muted"
+                >Browse our most requested tests, including blood work, urine analysis, and more. Book online and get
+                tested at home.</small
+              >
+            </p>
+          </div>
+          <div class="row" style="justify-content: center">
+            <div class="card col-md-3 col-12 ml-2" data-aos="zoom-in-up">
+              <div class="card-content">
+                <div class="card-body">
+                  <img class="img feature-img" src="/assets/blood-test.png" />
+                  <div class="card-title mt-2">Blood Test</div>
+                  <div class="card-subtitle">
+                    <p>
+                      <small class="text-muted text-center"
+                        >Comprehensive blood work to assess your overall health, including cholesterol, glucose, and
+                        more.</small
+                      >
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card col-md-3 col-12 ml-2" data-aos="zoom-in-up" data-aos-delay="100">
+              <div class="card-content">
+                <div class="card-body">
+                  <img class="img feature-img" src="/assets/urine-test.png" />
+                  <div class="card-title mt-2">Urine Test</div>
+                  <div class="card-subtitle">
+                    <p>
+                      <small class="text-muted text-center"
+                        >Analysis of urine samples to detect infections, kidney disease, and other health issues.</small
+                      >
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card col-md-3 col-12 ml-2" data-aos="zoom-in-up" data-aos-delay="200">
+              <div class="card-content">
+                <div class="card-body">
+                  <img class="img feature-img" src="/assets/diabetes-test.png" />
+                  <div class="card-title mt-2">Diabetes Test</div>
+                  <div class="card-subtitle">
+                    <p>
+                      <small class="text-muted text-center"
+                        >Screening for diabetes through blood tests to monitor glucose levels and prevent
+                        complications.</small
+                      >
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card col-md-3 col-12 ml-2" data-aos="zoom-in-up" data-aos-delay="200">
+              <div class="card-content">
+                <div class="card-body">
+                  <img class="img feature-img" src="./assets/thyroid-test.png" />
+                  <div class="card-title mt-2">Thyroid Test</div>
+                  <div class="card-subtitle">
+                    <p>
+                      <small class="text-muted text-center"
+                        >Assessment of thyroid function through blood tests to diagnose thyroid disorders and
+                        imbalances.</small
+                      >
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- testimonials -->
+
+      <section class="colored-section" id="testimonials" data-aos="fade-right">
+        <div class="container-fluid">
+          <h2 class="section2-heading">Testimonials</h2>
+          <div id="carouselExample" class="carousel slide">
+            <div class="carousel-inner">
+              <div class="carousel-item active container-fluid">
+                <h3 class="testimonial-text">
+                  HealthEase made getting tested a breeze! I was able to book my home test online, and the phlebotomist
+                  came right to my door. The results were quick and accurate, giving me peace of mind. Highly recommend
+                  their services!
+                </h3>
+                <img class="testimonial-image" src="https://i.ibb.co/d5DY64w/img1.jpg" alt="rajesh-profile" />
+                <em class="testimonial-name"><span>Rajesh</span>, Mumbai</em>
+              </div>
+              <div class="carousel-item container-fluid">
+                <h3 class="testimonial-text">
+                  I'm so grateful for HealthEase's AI chatbot. I had some health concerns late at night, and being able
+                  to chat with the bot instantly was a game-changer. It provided me with helpful information and
+                  reassurance until I could see my doctor. Thank you!
+                </h3>
+                <img class="testimonial-image" src="https://i.ibb.co/d5DY64w/img1.jpg" alt="priya-profile" />
+                <em class="testimonial-name"><span>Priya</span>, Banglore</em>
+              </div>
+              <div class="carousel-item container-fluid">
+                <h3 class="testimonial-text">
+                  I've been using HealthEase's symptom checker regularly, and it's been incredibly helpful. It helped me
+                  pinpoint a potential issue early on, allowing me to seek medical attention promptly. The
+                  recommendations provided were spot-on. Thank you, HealthEase!
+                </h3>
+                <img class="testimonial-image" src="https://i.ibb.co/d5DY64w/img1.jpg" alt="ankit-profile" />
+                <em class="testimonial-name"><span>Ankit</span>, Delhi</em>
+              </div>
+              <div class="carousel-item container-fluid">
+                <h3 class="testimonial-text">
+                  As someone with a busy schedule, HealthEase's home test services were a lifesaver. I didn't have to
+                  take time off work to visit a lab - instead, they came to me. The process was seamless, and I received
+                  my results quickly. Couldn't be happier with the convenience!
+                </h3>
+                <img class="testimonial-image" src="https://i.ibb.co/d5DY64w/img1.jpg" alt="neha-profile" />
+                <em class="testimonial-name"><span>Neha</span>, Kolkata</em>
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+        </div>
+      </section>
+      <!-- add one more section -->
+    </main>
+    <!-- footer -->
+    <%- include('partials/footer') %>
+
+    <!-- Bootstrap JavaScript Libraries -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+      integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+      crossorigin="anonymous"
+    ></script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+      integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+      crossorigin="anonymous"
+    ></script>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init({
+        offset: 400,
+        duration: 900,
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,217 @@
+
+/* MEDICAL QUERY */
+
+.searchBox {
+    display: flex;
+    /* max-width: 720px; */
+    width: 60%;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    background: #2f3640;
+    border-radius: 50px;
+    position: fixed;
+    bottom: 40px;
+  }
+  
+  .searchButton {
+    color: white;
+    position: absolute;
+    right: 8px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: var(--gradient-2, linear-gradient(90deg, #2af598 0%, #009efd 100%));
+    border: 0;
+    display: inline-block;
+    transition: all 300ms cubic-bezier(0.23, 1, 0.32, 1);
+  }
+  /*hover effect*/
+  button:hover {
+    color: #fff;
+    background-color: #1a1a1a;
+    box-shadow: rgba(0, 0, 0, 0.5) 0 10px 20px;
+    transform: translateY(-3px);
+  }
+  /*button pressing effect*/
+  button:active {
+    box-shadow: none;
+    transform: translateY(0);
+  }
+  
+  .searchInput {
+    width: 100%;
+    border: none;
+    background: none;
+    outline: none;
+    color: white;
+    font-size: 15px;
+    padding: 24px 46px 24px 26px;
+  }
+  
+  .medicalgpt {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+    text-align: center;
+    flex-direction: column;
+  }
+  body {
+    height: 100vh;
+    background-image: url("/assets/medical-bg2.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+  }
+  .medical-heading {
+    background-color: #4158d0;
+    font-size: 72px;
+    background-clip: text;
+    
+    background-image: -webkit-linear-gradient(43deg, #4158d0 0%, #c850c0 46%, #ffcc70 100%);
+    /* -webkit-background-clip: text; */
+    -webkit-text-fill-color: transparent;
+  }
+  .medical-desc {
+    color: darkgray;
+    font-size: 24px;
+    font-weight: 500;
+    /* padding: 20px; */
+  }
+  #messages {
+    padding: 0 12px;
+    overflow-y: scroll;
+    max-height: 590px;
+    width: 80%;
+    display: flex;
+    /* over */
+    flex-direction: column;
+    gap: 20px;
+    justify-content: space-between;
+  
+    scrollbar-color: #5d56cd #e0e0e0;
+    scrollbar-width: thin;
+  }
+  
+  .user {
+    --_d: 100%;
+    border-right: var(--t) solid #0000;
+    margin-left: var(--t);
+    place-self: end;
+  }
+  .server {
+    --_d: 0%;
+    border-left: var(--t) solid #0000;
+    margin-right: var(--t);
+    place-self: start;
+  }
+  .message {
+    font-size: 18px;
+    --r: 20px; /* the radius */
+    --t: 30px; /* the size of the tail */
+  
+    max-width: 900px;
+    padding: calc(2 * var(--r) / 3);
+    mask: radial-gradient(var(--t) at var(--_d) 0, #0000 98%, #000 102%) var(--_d) 100% / calc(100% - var(--r))
+    var(--t) no-repeat,
+  conic-gradient(at var(--r) var(--r), #000 75%, #0000 0) calc(var(--r) / -2) calc(var(--r) / -2) padding-box,
+  radial-gradient(50% 50%, #000 98%, #0000 101%) 0 0 / var(--r) var(--r) space padding-box;;
+    
+    background: #1e3c72; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #2a5298, #1e3c72); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(135deg, #2a5298, #1e3c72) border-box; /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  
+    color: #fff;
+  }
+
+  /* heading animation */
+  
+  .tracking-in-expand {
+    -webkit-animation: tracking-in-expand 0.8s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+            animation: tracking-in-expand 0.8s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+  }
+
+
+/**
+ * ----------------------------------------
+ * animation tracking-in-expand
+ * ----------------------------------------
+ */
+@-webkit-keyframes tracking-in-expand {
+  0% {
+    letter-spacing: -0.5em;
+    opacity: 0;
+  }
+  40% {
+    opacity: 0.6;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes tracking-in-expand {
+  0% {
+    letter-spacing: -0.5em;
+    opacity: 0;
+  }
+  40% {
+    opacity: 0.6;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+
+/* input animation */
+.bounce-top {
+	animation: bounce-top 0.7s both;
+}
+
+
+
+/**
+ * ----------------------------------------
+ * animation bounce-top
+ * ----------------------------------------
+ */
+ @keyframes bounce-top {
+  0% {
+    transform: translateY(-45px);
+    animation-timing-function: ease-in;
+    opacity: 1;
+  }
+  24% {
+    opacity: 1;
+  }
+  40% {
+    transform: translateY(-24px);
+    animation-timing-function: ease-in;
+  }
+  65% {
+    transform: translateY(-12px);
+    animation-timing-function: ease-in;
+  }
+  82% {
+    transform: translateY(-6px);
+    animation-timing-function: ease-in;
+  }
+  93% {
+    transform: translateY(-4px);
+    animation-timing-function: ease-in;
+  }
+  25%,
+  55%,
+  75%,
+  87% {
+    transform: translateY(0px);
+    animation-timing-function: ease-out;
+  }
+  100% {
+    transform: translateY(0px);
+    animation-timing-function: ease-out;
+    opacity: 1;
+  }
+}

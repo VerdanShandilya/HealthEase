@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="shortcut icon" href="/assets/icons8-chat-64.png" type="image/x-icon" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
+      integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk="
+      crossorigin="anonymous"
+    />
+    <!-- Bootstrap CSS v5.2.1 -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="css/home.css" />
+    <link rel="stylesheet" href="css/chat.css" />
+    <title>Chat</title>
+  </head>
+  <body>
+    <%- include('partials/navbar',{login:isAuthenticated}) %>
+
+    <div class="join-container container">
+      <header class="join-header">
+        <h1 style="color: #f5f6f7"><i class="fas fa-comment-dots"></i> MediChat</h1>
+      </header>
+      <main class="join-main">
+        <form action="/appointment" method="post">
+          <div class="form-control">
+            <label style="color: #f5f6f7" for="username">Username</label>
+            <input type="text" name="username" id="username" placeholder="Enter Username" required />
+          </div>
+          <div class="form-control">
+            <label style="color: #f5f6f7" for="room">Talk to</label>
+            <select name="room" id="room">
+              <option value="Eye Specialist">Eye Specialist</option>
+              <option value="Pediatrician">Pediatrician</option>
+              <option value="Dermatologist">Dermatologist</option>
+              <option value="Physicians">Physicians</option>
+              <option value="Psychiatrists">Psychiatrists</option>
+            </select>
+          </div>
+          <button type="submit" class="btn" style="background-color: #1192de; color: white">Join Chat</button>
+        </form>
+      </main>
+    </div>
+    <%- include('partials/footer.ejs') %>
+    <!-- Bootstrap JavaScript Libraries -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+      integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+      crossorigin="anonymous"
+    ></script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+      integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
